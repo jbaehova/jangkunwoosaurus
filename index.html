@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장건우사우로스</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="score-display">
+            <span id="current-score">점수: 0</span>
+            <span id="high-score">최고: 0</span>
+        </div>
+
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+        <div id="start-screen" class="overlay">
+            <h1>장건우사우로스</h1>
+            <p>스페이스바 또는 화면 터치로 점프!</p>
+            <button id="start-btn">게임 시작</button>
+        </div>
+
+        <div id="game-over-screen" class="overlay hidden">
+            <h2>게임 오버!</h2>
+            <p>점수: <span id="final-score">0</span></p>
+            <div id="name-input-container">
+                <input type="text" id="player-name" placeholder="이름 입력 (최대 10자)" maxlength="10">
+                <button id="submit-score-btn">점수 등록</button>
+            </div>
+            <button id="restart-btn">다시 시작</button>
+        </div>
+
+        <div id="leaderboard-container">
+            <h3>리더보드 Top 10</h3>
+            <div id="leaderboard-list">
+                <p class="loading">로딩 중...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <!-- Game Scripts -->
+    <script src="firebase-config.js"></script>
+    <script src="leaderboard.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
